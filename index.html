@@ -8,15 +8,16 @@
 <link rel="stylesheet" id="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <header class="bg-info">
-        <h3 class="p-2">High Score:</h3>
+    <header class="bg-info row">
+        <h3 class="m-2 col-6">High Score:</h3>
+        <h3 class="m-2 timer align-self-end col-4">Time Left:</h3>
     </header>
-    <div class="col-8">
-      <div class="jumbotron">
+    <div class="row">
+      <div class="jumbotron col-8 m-4 startScreen">
         <h1 class="display-4">Javascript Coding Quiz</h1>
         <p class="lead">Press the start button to begin the quiz. It is timed and part of your score depends on how quick you finish.</p>
         <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Start</a>
+        <a class="btn btn-primary btn-lg" id="startbutton">Start</a>
       </div>
     </div>
     <script type="text/javascript" src="js/quiz.js"></script>
