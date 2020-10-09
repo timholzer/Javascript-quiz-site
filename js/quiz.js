@@ -4,7 +4,47 @@
 // 2. create a template for 10 questions with 4 answers. On button click the next button appears, if correct answer then add 10, if wrong then minus 10 seconds Do this with a class tag for correct answers.
 //have a text box to enter initials for the final score, save it and write it to the top scores.
 
-
+  var allQuestions = [{
+    question: "If a tree falls in the forest, why does it fall?",
+    options: ["It tripped over a root", "Gravity", "It took a class on Javascript that was too hard", 'That one scene from The LionKing where Scar says, "long live the king!'],
+    answer: 2
+  }, {
+    question: "How do you spell 'Javascipt'?",
+    options: ["Triple Moca Frapachino", "Jabba da Hut", "Javascript", "Fortran"],
+    answer: 2
+  }, {
+    question: "This webpage was written in HTML, CSS, and _____?",
+    options: ["Javascript", "Spite", "Pen","English"],
+    answer: 0 || 3
+  },{
+    question: "What does HTML stand for?",
+    options: ["Hyper-Text Markup Language", "Peace Love Unity Respect", "Javascript", "Hamburgers Tators Macoroni Lasagna"],
+    answer: 0
+  }, {
+    question: "What makes this quiz work?",
+    options: ["Mice in a series of tubes", "Javascript", "Hopes and Dreams", "A pencil and paper"],
+    answer: 1 || 2
+  },{
+    question: "2 + 2 =",
+    options: ["4", "5", "Blue! No Yell-aaahhhhhh!!!", "Diet Poptarts"],
+    answer: 0
+  },{
+    question: "'2 + 2' == ?",
+    options: ["4", "2 + 2", "'2 + 2'", "'4'"],
+    answer: 2
+  },{
+    question: "2 + 2 === ?",
+    options: ["4", "2 + 2", "'2 + 2'", "'4'"],
+    answer: 0 || 1
+  },{
+    question: "4 > 2",
+    options: ["True", "False", "True, but in Yellow", "False, but in Yellow"],
+    answer: 0 || 2
+  },{
+    question: "2 > 2",
+    options: ["True", "False", "Javascript", "Neither"],
+    answer: 1
+    }];
 
 
 
