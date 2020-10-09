@@ -48,14 +48,30 @@
 
 
 
+    function toggleElement() {
+        var x = document.getElementById(toggledId);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        }   else {
+            x.style.display = "none";
+          }
+
+    }
 
 
-document.getElementById("startbutton").addEventListener("click", function(){
+
+document.getElementById("startButton").addEventListener("click", function(){
     var timer=100;
+    timerLeft = document.getElementById("timeLeft");
+    toggledId = "startingScreen";
+    toggleElement();
+    toggledId = "questionBox";
+    toggleElement();
     //var timeLeft = timer-questionsWrong
    // var finalScore = gameScore + endTime
        function timeMinus(){
        timer = timer-1;
+       timerLeft.innerHTML = "Time Left: " + timer;
        console.log(timer); 
     }
     
