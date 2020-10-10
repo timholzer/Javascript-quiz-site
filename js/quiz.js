@@ -64,7 +64,7 @@
 
 document.getElementById("startButton").addEventListener("click", function(){
     
-    var timer=100;
+    var timer=60;
     timerLeft = document.getElementById("timeLeft");
     //calling the toggle of html
     toggledId = "startingScreen";    
@@ -74,21 +74,39 @@ document.getElementById("startButton").addEventListener("click", function(){
     //var timeLeft = timer-questionsWrong
    // var finalScore = gameScore + endTime
        function timeMinus(){
+       timerLeft.innerHTML = "Time Left: " + timer;    
        timer = timer-1;
-       timerLeft.innerHTML = "Time Left: " + timer;
-       console.log(timer); 
-       
-       if (timer < 1){
-          // end game function
-          
-       }
+       if (timer < 0){
+       endgameTimer();
+       }  
+ 
+
   }
  timerTick = setInterval (timeMinus, 1000);
     
     nextQuestion();
+    console.log(timer);
+
+function endgameTimer(){
+    console.log(score);
+    location.reload();
+    var userName = prompt("Enter your name. Your final score is: " + score);
     
+    //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
+    //gotta create the hmtl highscore element.
 
+}
 
+function endgame(){
+    var finalScore = (score + (timer * .5));
+    console.log(finalScore);
+    location.reload();
+     var userName = prompt("Enter your name. Your final score is: " + finalScore);
+    
+    //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
+    //gotta create the hmtl highscore element.
+
+}
 
 
 //build code to bring up the questions here
@@ -108,6 +126,9 @@ document.getElementById("startButton").addEventListener("click", function(){
         questionAsked.textContent = allQuestions[quesCounter-1].question;
         answerToQuestion = allQuestions[quesCounter-1].answer
   }
+  else {
+      endgame();
+  }
 }
 console.log(quesCounter);
 
@@ -119,10 +140,9 @@ console.log(quesCounter);
             } else {
                 timer = timer - 10;
             }
-            console.log(0 == answerToQuestion);
+
             quesCounter= quesCounter +1;
-            console.log(score);
-            console.log(timer);
+
 
             nextQuestion();
         });
@@ -133,9 +153,6 @@ console.log(quesCounter);
                 timer = timer - 10;
             }
             quesCounter= quesCounter +1;
-            console.log(1 == answerToQuestion);
-            console.log(score);
-            console.log(timer);
             nextQuestion();
         });
         document.getElementById("a3").addEventListener("click", function(){
@@ -144,10 +161,7 @@ console.log(quesCounter);
             } else {
                 timer = timer - 10;
             }
-            console.log(2 == answerToQuestion);
             quesCounter= quesCounter +1;
-            console.log(score);
-            console.log(timer);
             nextQuestion();
         });
         document.getElementById("a4").addEventListener("click", function(){
@@ -156,25 +170,12 @@ console.log(quesCounter);
             } else {
                 timer = timer - 10;
             }
-            console.log(2 == answerToQuestion);
             quesCounter= quesCounter +1;
-            console.log(score);
-            console.log(timer);
             nextQuestion();
         });
 
 
-    //code for when the questions are shown
-    // document.getElementByClass("answerButton").addEventListener("click", function(){
-    // answerButtonId = this.id;
-    // console.log(answerButtonId);
 
-
-    // });
-   // }
-   // else {
-        //end game code
- //   }
 
 
 

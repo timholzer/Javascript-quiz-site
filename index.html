@@ -10,18 +10,16 @@
 <body>
     <header class="bg-info row">
         <h3 class="m-2 col-6">High Score:</h3>
-        <h3 class="m-2 timeLeft align-self-end col-4" id="timeLeft">Time Left:</h3>
+        <h3 class="m-2 timeLeft align-self-end col-4" id="timeLeft"></h3>
     </header>
-    <div class="row" id="startingScreen">
-      <div class="jumbotron col-8 m-4 startScreen">
+    <div class="row" >
+      <div class="jumbotron col-8 m-4 startScreen" id="startingScreen">
         <h1 class="display-4">Javascript Coding Quiz</h1>
         <p class="lead">Press the start button to begin the quiz. It is timed and part of your score depends on how quick you finish.</p>
         <hr class="my-4">
         <a class="btn btn-primary btn-lg" id="startButton">Start</a>
       </div>
-    </div>
-    <div class="row" id="questionBox" style="display: none;">
-        <div class="jumbotron col-8 m-4 questionScreen">
+        <div class="jumbotron col-8 m-4 questionScreen" id="questionBox" style="display: none;">
           <h1 class="display-4" id="questionNumber">Question</h1>
           <p class="lead" id="questionAsked">Question Asked</p>
           <hr class="my-4">
@@ -32,6 +30,10 @@
             <a class="btn btn-primary btn-lg m-2 answerButton" id="a4">answer 4</a>
           </div>
         </div>
+       <div class= "jumbotron col-3 m-4">
+           <h2 id="highscores">Highscores:</h2>
+           <p id="highscoresList"></p>
+       </div>
       </div>
     <script type="text/javascript" src="js/quiz.js"></script>
 </body>
