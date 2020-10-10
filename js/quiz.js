@@ -47,23 +47,25 @@
     }];
 
 
-
+// function to toggle an id
     function toggleElement() {
         var x = document.getElementById(toggledId);
+        console.log(x);
         if (x.style.display === "none") {
           x.style.display = "block";
         }   else {
             x.style.display = "none";
           }
-
+        console.log(x);
     }
 
-
+//starts timer and toggles to the question box
 
 document.getElementById("startButton").addEventListener("click", function(){
     var timer=100;
     timerLeft = document.getElementById("timeLeft");
-    toggledId = "startingScreen";
+    //calling the toggle of html
+    toggledId = "startingScreen";    
     toggleElement();
     toggledId = "questionBox";
     toggleElement();
@@ -74,10 +76,28 @@ document.getElementById("startButton").addEventListener("click", function(){
        timerLeft.innerHTML = "Time Left: " + timer;
        console.log(timer); 
     }
+ timerTick = setInterval (timeMinus, 1000);
+
+//build code to bring up the questions here
     
 
-    timerTick = setInterval (timeMinus, 1000);
-    
+
+
+    //code for when the questions are shown
+    // document.getElementByClass("answerButton").addEventListener("click", function(){
+    // answerButtonId = this.id;
+    // console.log(answerButtonId);
+
+    //probably need to define answerbutton id and allquestions.answer
+
+    // if (answerButtonId === allQuestionsanswer ) {
+    //     score + 10;
+    // }
+    // else {
+    //     timer - 10;
+    // });
+
+   
        
 
 
