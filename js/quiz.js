@@ -7,45 +7,46 @@
   var allQuestions = [{
     question: "If a tree falls in the forest, why does it fall?",
     options: ["It tripped over a root", "Gravity", "It took a class on Javascript that was too hard", 'That one scene from The Lion King where Scar says, "long live the king!'],
-    answer: a3
+    answer: 1
   }, {
     question: "How do you spell 'Javascipt'?",
     options: ["Triple Moca Frapachino", "Jabba da Hut", "Javascript", "Fortran"],
-    answer: a3
+    answer: 2
   }, {
     question: "This webpage was written in HTML, CSS, and _____?",
-    options: ["Javascript", "Spite", "Pen","English"],
-    answer: a1 || a4
+    options: ["Javascript", "Spite", "Pen","Finger Paint"],
+    answer: 0
   },{
     question: "What does HTML stand for?",
     options: ["Hyper-Text Markup Language", "Peace Love Unity Respect", "Javascript", "Hamburgers Tators Macoroni Lasagna"],
-    answer: a1
+    answer: 0
   }, {
     question: "What makes this quiz work?",
     options: ["Mice in a series of tubes", "Javascript", "Hopes and Dreams", "A pencil and paper"],
-    answer: a2 || a3
+    answer: 1
   },{
     question: "2 + 2 =",
     options: ["4", "5", "Blue! No Yell-aaahhhhhh!!!", "Diet Poptarts"],
-    answer: a1
+    answer: 0
   },{
     question: "'2 + 2' == ?",
     options: ["4", "2 + 2", "'2 + 2'", "'4'"],
-    answer: a3
+    answer: 2
   },{
     question: "2 + 2 === ?",
-    options: ["4", "2 + 2", "'2 + 2'", "'4'"],
-    answer: a1 || a2
+    options: ["4", "a big number", "'2 + 2'", "'4'"],
+    answer: 0
   },{
     question: "4 > 2",
-    options: ["True", "False", "True, but in Yellow", "False, but in Yellow"],
-    answer: a1 || a3
+    options: ["True", "False", "Yellow", "A Hat, but it like talks"],
+    answer: 0
   },{
     question: "2 > 2",
     options: ["True", "False", "Javascript", "Neither"],
-    answer: a2
+    answer: 1
     }];
-
+    
+    score = 0
     quesCounter = 1;
 // function to toggle an id
     function toggleElement() {
@@ -105,45 +106,60 @@ document.getElementById("startButton").addEventListener("click", function(){
         butt4.textContent = allQuestions[quesCounter-1].options[3];
         questionAsked = document.getElementById("questionAsked");
         questionAsked.textContent = allQuestions[quesCounter-1].question;
-
+        answerToQuestion = allQuestions[quesCounter-1].answer
   }
 }
 console.log(quesCounter);
+
   //checking which button is clicked
         document.getElementById("a1").addEventListener("click", function(){
-            if (this.id == allQuestions[quesCounter].answer) {
-                score + 10;
+            
+            if (0 == answerToQuestion) {
+                score = score + 10;
             } else {
-                timer - 10;
+                timer = timer - 10;
             }
+            console.log(0 == answerToQuestion);
             quesCounter= quesCounter +1;
+            console.log(score);
+            console.log(timer);
+
             nextQuestion();
         });
         document.getElementById("a2").addEventListener("click", function(){
-            if (this.id == allQuestions[quesCounter].answer) {
-                score + 10;
+            if (1 == answerToQuestion) {
+                score = score + 10;
             } else {
-                timer - 10;
+                timer = timer - 10;
             }
             quesCounter= quesCounter +1;
+            console.log(1 == answerToQuestion);
+            console.log(score);
+            console.log(timer);
             nextQuestion();
         });
         document.getElementById("a3").addEventListener("click", function(){
-            if (this.id == allQuestions[quesCounter].answer) {
-                score + 10;
+            if (2 == answerToQuestion) {
+                score = score + 10;
             } else {
-                timer - 10;
+                timer = timer - 10;
             }
+            console.log(2 == answerToQuestion);
             quesCounter= quesCounter +1;
+            console.log(score);
+            console.log(timer);
             nextQuestion();
         });
         document.getElementById("a4").addEventListener("click", function(){
-            if (this.id == allQuestions[quesCounter].answer) {
-                score + 10;
+            if (2 == answerToQuestion) {
+                score = score + 10;
             } else {
-                timer - 10;
+                timer = timer - 10;
             }
+            console.log(2 == answerToQuestion);
             quesCounter= quesCounter +1;
+            console.log(score);
+            console.log(timer);
             nextQuestion();
         });
 
