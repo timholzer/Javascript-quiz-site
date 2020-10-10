@@ -6,7 +6,7 @@
 
   var allQuestions = [{
     question: "If a tree falls in the forest, why does it fall?",
-    options: ["It tripped over a root", "Gravity", "It took a class on Javascript that was too hard", 'That one scene from The LionKing where Scar says, "long live the king!'],
+    options: ["It tripped over a root", "Gravity", "It took a class on Javascript that was too hard", 'That one scene from The Lion King where Scar says, "long live the king!'],
     answer: 2
   }, {
     question: "How do you spell 'Javascipt'?",
@@ -75,11 +75,27 @@ document.getElementById("startButton").addEventListener("click", function(){
        timer = timer-1;
        timerLeft.innerHTML = "Time Left: " + timer;
        console.log(timer); 
-    }
+       if (timer < 1){
+          // end game function
+       }
+  }
  timerTick = setInterval (timeMinus, 1000);
-
+    quesCounter = 0
 //build code to bring up the questions here
-    
+    if(quesCounter < allQuestions.length){
+        questionNumber = document.getElementById("questionNumber");
+        questionNumber.innerHTML = "Question Number: " + (quesCounter +1);
+        butt1 = document.getElementById("a1");
+        butt1.textContent = allQuestions[quesCounter].options[0];
+        butt2 = document.getElementById("a2");
+        butt2.textContent = allQuestions[quesCounter].options[1];
+        butt3 = document.getElementById("a3");
+        butt3.textContent = allQuestions[quesCounter].options[2];
+        butt4 = document.getElementById("a4");
+        butt4.textContent = allQuestions[quesCounter].options[3];
+
+        
+
 
 
 
@@ -90,12 +106,23 @@ document.getElementById("startButton").addEventListener("click", function(){
 
     //probably need to define answerbutton id and allquestions.answer
 
-    // if (answerButtonId === allQuestionsanswer ) {
+            // if (answerButtonId === allQuestionsanswer ) {
     //     score + 10;
     // }
     // else {
     //     timer - 10;
     // });
+    }
+    else {
+        //end game code
+    }
+
+    ;
+
+
+
+
+
 
    
        
