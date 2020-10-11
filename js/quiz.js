@@ -1,8 +1,4 @@
-// steps to making this quiz
-// 1. initial page contains h1 that says coding quiz, and a start button top left has top scores
-// on start there is a timer and a score that ticks down by 1 per second.
-// 2. create a template for 10 questions with 4 answers. On button click the next button appears, if correct answer then add 10, if wrong then minus 10 seconds Do this with a class tag for correct answers.
-//have a text box to enter initials for the final score, save it and write it to the top scores.
+//question array
 
   var allQuestions = [{
     question: "If a tree falls in the forest, why does it fall?",
@@ -45,27 +41,29 @@
     options: ["True", "False", "Javascript", "Neither"],
     answer: 1
     }];
+
+    // why not have fun with placeholder values
     var highScore = "1 Pizza"
     score = 0
     quesCounter = 1;
     var scoreArray = [];
 
 
-
+    // scores from array
     var pastHighscores = localStorage.getItem("scoreArray");
 
     scoreArrayStored = JSON.parse(localStorage.getItem("scoreArray")) || [];
+    // sort and reverse the array so it's in numerical order
     scoreArrayStored.sort();
     scoreArrayStored.reverse();
-    console.log(scoreArrayStored);
-    
+    //adding the scores to the top score div
     for (i = 0; i < scoreArrayStored.length; i++) {
         var pee = document.createElement("P");  
         pee.innerHTML = scoreArrayStored[i];
         document.getElementById("highestScores").appendChild(pee); 
         
     }
-
+    // add the topest score to the nav bar if there is a top score
     topScore = document.getElementById("bigNum");
     if (scoreArrayStored.length >= 1) {
     console.log(topScore);
@@ -77,10 +75,6 @@
 
 
 
-
-
-
- //   listOfHighscores.innerHTML = scoreArrayStored[1];
 
 // function to toggle an id
     function toggleElement() {
@@ -115,11 +109,13 @@ document.getElementById("startButton").addEventListener("click", function(){
     endgameTimer();}
     }, 1000);
    
-
     nextQuestion();
     console.log(timer);
 
+    // end game if it ends because of the timer, doing scoring and writing the score to the score array
+    //Time can go below zero due to the -10 seconds on incorrect answers, to keep scoring consistant a seperate function is needed.
 function endgameTimer(){
+    //the value needs to be reset or the prompt will run multiple times
     timer = 60;
     console.log(score);
     var finalScore = score
@@ -131,32 +127,24 @@ function endgameTimer(){
     localStorage.setItem("scoreArray", JSON.stringify(scoreArrayStored));
     console.log(scoreArrayStored);
     location.reload();
-    //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
-    //gotta create the hmtl highscore element.
 
 }
 
+ // end game if out of questions, doing scoring and writing the score to the score array
 function endgame(){
     var finalScore = (score + (timer * .5));
     console.log(finalScore); 
     var userName = prompt("Enter your name. Your final score is: " + finalScore);
     var highScore = finalScore + " " + userName;
     momentHighscore = highScore;
-    console.log(momentHighscore);
     scoreArrayStored.push(momentHighscore);
     localStorage.setItem("scoreArray", JSON.stringify(scoreArrayStored));
-    console.log(scoreArrayStored);
     location.reload();
-
-
-
-    //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
-    //gotta create the hmtl highscore element.
 
 }
 
 
-//build code to bring up the questions here
+//code to bring up the questions
  function nextQuestion(){
     if(quesCounter-1 < allQuestions.length){
         questionNumber = document.getElementById("questionNumber");
@@ -173,13 +161,13 @@ function endgame(){
         questionAsked.textContent = allQuestions[quesCounter-1].question;
         answerToQuestion = allQuestions[quesCounter-1].answer
   }
+  //out of questions
   else {
       endgame();
   }
 }
-console.log(quesCounter);
 
-  //checking which button is clicked
+  //checking which button is clicked and if it is correct and doing scoring
         document.getElementById("a1").addEventListener("click", function(){
             
             if (0 == answerToQuestion) {
@@ -217,27 +205,4 @@ console.log(quesCounter);
             quesCounter= quesCounter +1;
             nextQuestion();
         });
-
-
-
-
-
-
-
-
-
-
-
-   
-       
-
-
-        
-      
-         
-
-
-
-
-
 })
