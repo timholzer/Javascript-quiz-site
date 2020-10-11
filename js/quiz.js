@@ -45,9 +45,12 @@
     options: ["True", "False", "Javascript", "Neither"],
     answer: 1
     }];
-    
+    var highScore = "1 Pizza"
     score = 0
     quesCounter = 1;
+    var scoreArray = [];
+
+
 // function to toggle an id
     function toggleElement() {
         var x = document.getElementById(toggledId);
@@ -61,37 +64,53 @@
     }
 
 //starts timer and toggles to the question box
+var timer=60;
 
 document.getElementById("startButton").addEventListener("click", function(){
     
-    var timer=60;
+    
     timerLeft = document.getElementById("timeLeft");
     //calling the toggle of html
     toggledId = "startingScreen";    
     toggleElement();
     toggledId = "questionBox";
     toggleElement();
-    //var timeLeft = timer-questionsWrong
-   // var finalScore = gameScore + endTime
-       function timeMinus(){
-       timerLeft.innerHTML = "Time Left: " + timer;    
-       timer = timer-1;
-       if (timer < 0){
-       endgameTimer();
-       }  
+
+    clockTimer = setInterval(function () {
+    timerLeft.innerHTML = "TimeLeft: " + timer;
+    timer--;
+    if (timer < 1)
+    { clearInterval(timer);
+    endgameTimer();}
+    }, 1000);
+   
+
+//        function timeMinus(){
+//        timerLeft.innerHTML = "Time Left: " + timer;    
+//        timer = timer-1;
+
+//  }
+//  timerTick = setInterval (timeMinus, 1000);
+
+//             if (timer < 0){
+//        endgameTimer();
+//        }  
  
 
-  }
- timerTick = setInterval (timeMinus, 1000);
-    
+
     nextQuestion();
     console.log(timer);
 
 function endgameTimer(){
+    timer = 60;
     console.log(score);
+    var finalScore = score
+    var userName = prompt("You ran out of time. Enter your name. Your final score is: " + score);
+    var highScore = finalScore + " " + userName;
+    momentHighscore = highScore;
+    console.log(momentHighscore);
+    localStorage.setItem("scoreArray", momentHighscore);
     location.reload();
-    var userName = prompt("Enter your name. Your final score is: " + score);
-    
     //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
     //gotta create the hmtl highscore element.
 
@@ -99,12 +118,22 @@ function endgameTimer(){
 
 function endgame(){
     var finalScore = (score + (timer * .5));
-    console.log(finalScore);
+    console.log(finalScore); 
+    var userName = prompt("Enter your name. Your final score is: " + finalScore);
+    var highScore = finalScore + " " + userName;
+    momentHighscore = highScore;
+    console.log(momentHighscore);
+    localStorage.setItem("scoreArray", momentHighscore);
     location.reload();
-     var userName = prompt("Enter your name. Your final score is: " + finalScore);
-    
     //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
     //gotta create the hmtl highscore element.
+
+}
+
+function addHighscore(){
+  
+
+
 
 }
 
@@ -140,10 +169,7 @@ console.log(quesCounter);
             } else {
                 timer = timer - 10;
             }
-
             quesCounter= quesCounter +1;
-
-
             nextQuestion();
         });
         document.getElementById("a2").addEventListener("click", function(){
