@@ -51,6 +51,37 @@
     var scoreArray = [];
 
 
+
+    var pastHighscores = localStorage.getItem("scoreArray");
+
+    scoreArrayStored = JSON.parse(localStorage.getItem("scoreArray")) || [];
+    scoreArrayStored.sort();
+    scoreArrayStored.reverse();
+    console.log(scoreArrayStored);
+    
+    for (i = 0; i < scoreArrayStored.length; i++) {
+        var pee = document.createElement("P");  
+        pee.innerHTML = scoreArrayStored[i];
+        document.getElementById("highestScores").appendChild(pee); 
+        
+    }
+
+    topScore = document.getElementById("bigNum");
+    if (scoreArrayStored.length >= 1) {
+    console.log(topScore);
+    console.log(scoreArrayStored[0]);
+    topScore.innerHTML = ("Top Score: "+ scoreArrayStored[0]);
+    } else {
+        topScore.innerHTML = ("Top Score: you?");
+    }
+
+
+
+
+
+
+ //   listOfHighscores.innerHTML = scoreArrayStored[1];
+
 // function to toggle an id
     function toggleElement() {
         var x = document.getElementById(toggledId);
@@ -85,19 +116,6 @@ document.getElementById("startButton").addEventListener("click", function(){
     }, 1000);
    
 
-//        function timeMinus(){
-//        timerLeft.innerHTML = "Time Left: " + timer;    
-//        timer = timer-1;
-
-//  }
-//  timerTick = setInterval (timeMinus, 1000);
-
-//             if (timer < 0){
-//        endgameTimer();
-//        }  
- 
-
-
     nextQuestion();
     console.log(timer);
 
@@ -109,7 +127,9 @@ function endgameTimer(){
     var highScore = finalScore + " " + userName;
     momentHighscore = highScore;
     console.log(momentHighscore);
-    localStorage.setItem("scoreArray", momentHighscore);
+    scoreArrayStored.push(momentHighscore);
+    localStorage.setItem("scoreArray", JSON.stringify(scoreArrayStored));
+    console.log(scoreArrayStored);
     location.reload();
     //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
     //gotta create the hmtl highscore element.
@@ -123,17 +143,15 @@ function endgame(){
     var highScore = finalScore + " " + userName;
     momentHighscore = highScore;
     console.log(momentHighscore);
-    localStorage.setItem("scoreArray", momentHighscore);
+    scoreArrayStored.push(momentHighscore);
+    localStorage.setItem("scoreArray", JSON.stringify(scoreArrayStored));
+    console.log(scoreArrayStored);
     location.reload();
+
+
+
     //add finalScore + userName and  to the highscore list sort by reverse order. also add to local storage.
     //gotta create the hmtl highscore element.
-
-}
-
-function addHighscore(){
-  
-
-
 
 }
 
