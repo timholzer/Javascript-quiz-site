@@ -11,4 +11,4 @@ Homework 4 - Javascript Quiz
   -When either the time goes below zero or questions run out the user to prompted to enter their name.
   -The highscore is added to the highscores and local storage and the quiz is reset.
 
-License: ![](License.md)
+License: ![](LICENSE.md)
