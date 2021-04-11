@@ -10,3 +10,5 @@ Homework 4 - Javascript Quiz
   -For final scoring, if you finish all questions you get +.5 bonus points for each second left.
   -When either the time goes below zero or questions run out the user to prompted to enter their name.
   -The highscore is added to the highscores and local storage and the quiz is reset.
+
+License: [License](LICENSE)
